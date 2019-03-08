@@ -1,0 +1,8 @@
+#!/bin/sh
+
+make main.o
+if [ "$?" -eq "0" ]; then
+	./main
+else
+	echo "ERROR"
+fi

@@ -23,13 +23,6 @@
 #define menu_item_action(NAME, PTR) { .name = NAME, .ptr = PTR, .type = menu_opt_action }
 #define menu_item_return(NAME) { .name = NAME, .ptr = NULL, .type = menu_opt_cancel }
 
-static void confirm(void);
-static void cancel(void);
-static void cursor_fwd(void);
-static void cursor_back(void);
-static void increase(void);
-static void decrease(void);
-
 typedef enum item_type {
 
 	menu_opt_none = 0,
@@ -106,5 +99,35 @@ struct menu_controller_t {
 
 menu_t menu_config;
 menu_controller_t menu;
+
+/**
+ * @brief      Action taken upon confirm button.
+ */
+static void confirm(void);
+
+/**
+ * @brief      Action taken upon cancel button.
+ */
+static void cancel(void);
+
+/**
+ * @brief      Iterate the cursor forward.
+ */
+static void cursor_fwd(void);
+
+/**
+ * @brief      Retro-iterate the cursor.
+ */
+static void cursor_back(void);
+
+/**
+ * @brief      Increase current value.
+ */
+static void increase(void);
+
+/**
+ * @brief      Decrease current value.
+ */
+static void decrease(void);
 
 #endif

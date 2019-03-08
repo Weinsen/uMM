@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 #endif
 		switch(c) {
 			case '+':
-				menu.cursor_move();
+				menu.cursor_fwd();
 				menu.increase();
 				break;
 
