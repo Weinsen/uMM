@@ -8,6 +8,8 @@ void test_func2(void);
 
 void print_menu_t(void);
 
+uint32_t counter = 0;
+
 uint8_t test_var = 00;
 uint8_t toggle1 = 0;
 uint8_t toggle2 = 0;
@@ -46,17 +48,16 @@ int main(int argc, char **argv)
 	menu.menu->parent = &menu_menu_1;
 	menu.show = print_menu_t;
 
-	
-
 	while(c != 'e') {
 
 		// system("clear");
 
-		// c = 0;
-		// while (!c) {
-		// 	c = getchar();
-		// }
-
+#if 0
+		c = 0;
+		while (!c) {
+			c = getchar();
+		}
+#else
 		c = rand() % 3;
 		switch(c) {
 			case 0:
@@ -71,7 +72,7 @@ int main(int argc, char **argv)
 				c = '+';
 				break;
 		}		
-
+#endif
 		switch(c) {
 			case '+':
 				menu.cursor_move();
@@ -88,7 +89,8 @@ int main(int argc, char **argv)
 				break;
 		}
 
-		sleep(1);
+		usleep(100000);
+		counter++;
 
 	}
 	
@@ -101,8 +103,10 @@ void print_menu(menu_t *menu_ptr)
 
 	system("clear");
 
+	printf("\n%d\n", counter);
+
 	if(menu_ptr->name)
-		printf("\n-----------\n%s - %d\n\n", menu_ptr->name, menu_ptr->length);
+		printf("\n-----------\n%s\n\n", menu_ptr->name);
 
 	if(menu.mode == menu_mode_menu) {
 		for(i=0; i<menu_ptr->length; i++) {
