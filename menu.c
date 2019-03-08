@@ -64,7 +64,7 @@ static void cancel(void)
 {
 }
 
-static void cursor_move(void)
+static void cursor_fwd(void)
 {
 	if((menu.mode == menu_mode_menu) && (menu.menu->index < menu.menu->length - 1)) {
 		menu.menu->index++;
@@ -131,7 +131,7 @@ menu_controller_t menu = {
 	.mode			= menu_mode_menu,
 	.confirm 		= confirm,
 	.cancel 		= cancel,
-	.cursor_move 	= cursor_move,
+	.cursor_fwd 	= cursor_fwd,
 	.cursor_back 	= cursor_back,
 	.increase 		= increase,
 	.decrease 		= decrease

@@ -25,7 +25,7 @@
 
 static void confirm(void);
 static void cancel(void);
-static void cursor_move(void);
+static void cursor_fwd(void);
 static void cursor_back(void);
 static void increase(void);
 static void decrease(void);
@@ -98,7 +98,7 @@ struct menu_controller_t {
 	void (*confirm)();
 	void (*cancel)();
 	void (*cursor_back)();
-	void (*cursor_move)();
+	void (*cursor_fwd)();
 	void (*increase)();
 	void (*decrease)();
 
